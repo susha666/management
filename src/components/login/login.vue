@@ -43,7 +43,7 @@ export default {
                     })
                     this.$message.success(msg);
                 } else {
-                    this.$message.error(msg);
+                    // this.$message.error(msg);
                 }
                 //如果登录失败提示错误信息
 
