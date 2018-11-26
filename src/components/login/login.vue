@@ -26,8 +26,9 @@ export default {
     },
     methods: {
         //发送登录请求
-        getuserList() {
-            this.$http.post("login", this.formdata).then(res => {
+        async getuserList() {
+          //在异步操作的外面操作异步操作里面的数据
+            const res=await this.$http.post("login", this.formdata)
                 // console.log(res);
                 //如果登录成功,提示登录成功,并跳转到首页
                 const {
@@ -38,16 +39,20 @@ export default {
                     data
                 } = res.data
                 if (status === 200) {
+                    //保存token值
+                    const token=localStorage.setItem('token',data.token);
                     this.$router.push({
                         name: 'home'
                     })
                     this.$message.success(msg);
+                  
+                    // console.log(token);
                 } else {
-                    // this.$message.error(msg);
+                    this.$message.error(msg);
                 }
                 //如果登录失败提示错误信息
 
-            });
+            
         }
     }
 };
