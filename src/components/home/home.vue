@@ -22,13 +22,15 @@
     <!-- 侧边栏 -->
     <el-container>
         <el-aside width="200px" class="aside">
-            <el-menu :unique-opened="true" default-active="2" class="el-menu-vertical-demo">
-                <el-submenu index="1" class="menu">
+            <el-menu 
+            :router="true"
+            :unique-opened="true" default-active="2" class="el-menu-vertical-demo">
+                <el-submenu index="1" >
                     <template slot="title">
                         <i class="el-icon-location"></i>
                         <span>用户管理</span>
                     </template>
-                    <el-menu-item index="1-1" class="menu">
+                    <el-menu-item index="user">
                         <template slot="title">
                             <i class="el-icon-location"></i>
                             <span>用户列表</span>
@@ -107,7 +109,9 @@
         </el-aside>
 
         <!-- 主体 -->
-        <el-main class="main">Main</el-main>
+        <el-main class="main">
+            <router-view></router-view>
+        </el-main>
 
     </el-container>
 
