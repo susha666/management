@@ -13,7 +13,7 @@
                     <h2>电商后台管理系统</h2>
                 </el-col>
                 <el-col :span="1">
-                    <a href="#" class="loginout">登录</a>
+                    <a href="#" class="loginout" @click.prevent="loginout()">退出</a>
                 </el-col>
             </el-row>
         </el-row>
@@ -125,7 +125,14 @@ export default {
     }
   },
   methods:{
-
+    loginout(){
+      //1.提示
+      this.$message.success('退出成功')
+      //清除localstorage
+      localStorage.clear();
+      //跳到登录界面
+      this.$router.push({name:'login'})
+    }
   }
 };
 </script>
