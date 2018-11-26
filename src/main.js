@@ -4,8 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
+//引入axios插件
+import MyHttpServer from '@/plugins/http.js'
+import './css/index.css'
 import 'element-ui/lib/theme-chalk/index.css'
+//使用插件
+
 Vue.use(ElementUI)
+Vue.use(MyHttpServer)
 
 // Vue.config.productionTip = false
 
